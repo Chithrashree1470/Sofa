@@ -1,0 +1,95 @@
+Template_ID
+
+- Unique identifier for the sofa template.
+- Assigned manually.
+
+Template_Name
+
+- Name of the CAD sofa template.
+- Taken from the Fusion model/template name.
+
+Sofa_Type
+
+- Type of sofa (Straight, L-shape, U-shape, etc.).
+- Assigned manually or by the image processing module.
+
+Seat_Count
+
+- Number of seating positions.
+- Assigned manually or detected by Module 2.
+
+Overall_Length_mm
+
+- Total length of the sofa.
+- Derived from the L_mm of the "fabric cover" body (overall bounding box).
+
+Overall_Depth_mm
+
+- Total depth (front-to-back) of the sofa.
+- Derived from the W_mm of the "fabric cover" body (overall bounding box).
+
+Overall_Height_mm
+
+- Maximum height of the sofa.
+- Derived from the H_mm of the "fabric cover" body (overall bounding box).
+
+Armrest_Height_mm
+
+- Height of the armrest.
+- Prototype Rule:
+  max(H_mm of left/right_armrest_top\*) + H_mm of left/right_armrest_base.
+
+Backrest_Height_mm
+
+- Height of the visible backrest.
+- Derived from H_mm of backrest_front.
+
+Seat_Height_mm
+
+- Height of the seating surface from the ground.
+- Derived from max_y_mm of seat_top.
+
+Seat_Width_mm
+
+- Seat width parameter used for scaling in the prototype.
+- Derived from W_mm of seat_top.
+
+Seat_Depth_mm
+
+- Seat depth parameter used for scaling in the prototype.
+- Derived from H_mm of seat_front.
+
+Seat_Configuration
+
+- Indicates whether seat cushions are Jointed or Separate.
+- Assigned manually.
+
+Armrest_Frame_Material
+
+- Material of the internal armrest frame.
+- Assigned manually / manufacturer information.
+
+Backrest_Frame_Material
+
+- Material of the internal backrest frame.
+- Assigned manually / manufacturer information.
+
+Fabric_Material
+
+- Upholstery fabric material.
+- Assigned manually / manufacturer information.
+
+Leg_Count
+
+- Number of sofa legs.
+- Assigned manually or counted from the CAD model.
+
+Leg_Material
+
+- Material of the sofa legs.
+- Assigned manually / manufacturer information.
+
+Notes
+
+- Additional remarks about the template.
+- Added manually.

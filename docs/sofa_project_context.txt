@@ -1,0 +1,138 @@
+Sofa Cost Estimation Project - Context Document
+
+Last Updated: End of external component scaling phase
+
+============================================================ 1. PROJECT
+GOAL ============================================================
+
+Build an AI-assisted sofa quotation system that accepts: - Sofa image -
+Overall length - Overall depth - Overall height
+
+Pipeline: 1. Request package creation 2. Image processing 3. External
+component scaling 4. Internal component scaling 5. BOM generation 6. CAD
+reconstruction 7. Cost estimation
+
+Current focus is Phase 3 (External Component Scaling).
+
+============================================================ 2. PROJECT
+STRUCTURE ============================================================
+
+Main modules: - request_package.py - scaling/ - scale_components.py -
+armrest_scaler.py - seat_scaler.py - backrest_scaler.py -
+verification/ - check_scaling.py - armrest_checks.py - seat_checks.py -
+backrest_checks.py
+
+============================================================ 3. INPUTS
+============================================================
+
+Current scaling uses: - Sofa overall dimensions - Dummy input JSON
+(stored in scripts/scaling) - renamed_sofa_component.csv
+
+============================================================ 4. OUTPUT
+============================================================
+
+scaled_sofa_components.csv
+
+Columns:
+
+body scaled_L_mm scaled_W_mm scaled_H_mm scaled_min_x_mm scaled_min_y_mm
+scaled_min_z_mm scaled_max_x_mm scaled_max_y_mm scaled_max_z_mm
+scaled_center_x_mm scaled_center_y_mm scaled_center_z_mm
+
+============================================================ 5. DESIGN
+DECISIONS ============================================================
+
+Coordinate scaling: - Never scale coordinates directly. - Scale
+dimensions. - Keep centre fixed. - Recompute min/max from: center ±
+dimension/2
+
+Reason: Preserves placement while dimensions change.
+
+Scaling architecture: - One scaler per component. - Generic verification
+framework. - Component-specific engineering checks.
+
+============================================================ 6.
+COMPLETED COMPONENTS
+============================================================
+
+Armrests: - Complete - Verification passed
+
+Seats: - Complete - Verification passed
+
+Backrests: - Scaling implemented - Verification implemented - Fusion
+reconstruction pending
+
+============================================================ 7.
+IMPORTANT DISCOVERY
+============================================================
+
+Fusion L/W/H are LOCAL CAD AXES.
+
+They are NOT guaranteed to represent: - Length - Depth - Height
+
+Each body can have a different axis mapping.
+
+Example:
+
+seat_top L = sofa length W = cushion thickness H = seat depth
+
+seat_front L = sofa length W = front height H = panel thickness
+
+Future components must determine axis mapping before scaling.
+
+============================================================ 8.
+VERIFICATION FRAMEWORK
+============================================================
+
+Generic: check_scaling.py
+
+Component logic: - armrest_checks.py - seat_checks.py -
+backrest_checks.py
+
+Engineering checks are separated from scaling code.
+
+============================================================ 9. CURRENT
+STATUS ============================================================
+
+Completed: ✓ Request package ✓ Armrest scaling ✓ Seat scaling ✓ Backrest
+scaling ✓ Generic verification ✓ CSV generation
+
+Pending: - Correct Fusion reconstruction - Internal component scaling -
+BOM generation - CAD generation - Cost estimation
+
+============================================================ 10. CURRENT
+FUSION ISSUE
+============================================================
+
+Fusion reconstruction currently produces incorrectly oriented parts.
+
+Reason: Builder assumes every body uses:
+
+X = L Y = W Z = H
+
+This assumption is false because different bodies use different local
+axes.
+
+Coordinates are temporarily ignored until orientation handling is
+redesigned.
+
+============================================================ 11. NEXT
+STEPS ============================================================
+
+Priority:
+
+1.  Fix Fusion builder orientation.
+2.  Decide representation for body-specific local axes.
+3.  Complete internal component scaling.
+4.  Generate BOM.
+5.  Generate final CAD model.
+6.  Integrate costing engine.
+
+============================================================ 12. LESSONS
+LEARNED ============================================================
+
+-   Never assume Fusion L/W/H correspond to physical dimensions.
+-   Separate scaling logic from engineering validation.
+-   Build reusable component scalers.
+-   Keep verification generic.
+-   Export scaled dimensions only; derive coordinates from centres.

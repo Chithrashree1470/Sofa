@@ -1,0 +1,2 @@
+Template_ID,Template_Name,Sofa_Type,Seat_Count,Overall_Length_mm,Overall_Depth_mm,Overall_Height_mm,Armrest_Height_mm,Backrest_Height_mm,Seat_Height_mm,Seat_Width_mm,Seat_Depth_mm,Seat_Configuration,Armrest_Frame_Material,Backrest_Frame_Material,Fabric_Material,Leg_Count,Leg_Material,Notes
+T001,Sofa Internal Structure v2,Straight,3,2060.80,693.01,837.64,1616.00,186.37,263.66,51.16,25.40,Jointed,Wood,Wood,Fabric,4,Unknown,Overall and sectional measurements extracted from CAD template.

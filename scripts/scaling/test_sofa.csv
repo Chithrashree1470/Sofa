@@ -1,0 +1,5 @@
+folder,component,body,L_mm,W_mm,H_mm,min_x_mm,min_y_mm,min_z_mm,max_x_mm,max_y_mm,max_z_mm,center_x_mm,center_y_mm,center_z_mm,volume_mm3,appearance,quantity
+Component1:1,Component1,Body1,40.0,20.0,70.0,-20.0,0.0,-40.0,20.0,20.0,30.0,0.0,10.0,-5.0,56000.0,"Opaque(160,160,160)",1
+Component1:1,Component1,Body2,70.0,40.0,20.0,-32.41,6.08,-60.58,37.59,46.08,-40.58,2.59,26.08,-50.58,56000.0,"Opaque(160,160,160)",1
+Component1:1,Component1,Body3,20.0,40.0,70.0,-40.0,0.0,-40.0,-20.0,40.0,30.0,-30.0,20.0,-5.0,56000.0,"Opaque(160,160,160)",1
+Component1:1,Component1,Body4,70.0,40.0,20.0,-32.41,6.08,29.42,37.59,46.08,49.42,2.59,26.08,39.42,56000.0,"Opaque(160,160,160)",1
