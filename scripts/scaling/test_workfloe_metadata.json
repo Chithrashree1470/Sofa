@@ -1,5 +1,0 @@
-{
-    "seat": ["seat"],
-    "armrest": ["left_arm", "right_arm"],
-    "backrest": ["backrest"]
-}
